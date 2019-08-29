@@ -1,0 +1,5 @@
+Source: simpleamqpclient
+Version: 2.4
+Build-Depends: boost-system, boost-chrono, boost-smart-ptr, boost-variant, boost-foreach, boost-lexical-cast, boost-math, librabbitmq
+Description: An easy-to-use C++ wrapper around the rabbitmq-c
+Homepage: https://github.com/alanxz/SimpleAmqpClient
