@@ -21,8 +21,8 @@ include(vcpkg_common_functions)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH 
     REPO moja-global/FLINT
-    REF 4edfbc39f511f7fc630b6f3a24fef37e305494f8
-    SHA512 d3c6c70bddf1f9b01ada5bb17a8efc4a08c9a653d48faa10e6483ece20402950015d88be47a092da56bb6e418876417b8651a59a4704030720cf4303ea7bd310
+    REF 49133d9df7ac989bd39a9452f04de4dc8cd25108
+    SHA512 7ee4dedaaec2c2332cbe0857d0ec1e0a5d953a97865cd1c5f3c2e3dafea9290487146164a4c97d0ce2a53287acbb6c511dc253e5c2fe3c5fe87ee1542b82f0a0
 )
 
 #vcpkg_extract_source_archive(${ARCHIVE})
@@ -41,7 +41,11 @@ vcpkg_configure_cmake(
 )
 
 vcpkg_install_cmake()
-vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake)
+if(EXISTS "${CURRENT_PACKAGES_DIR}/cmake")
+  vcpkg_fixup_cmake_targets(CONFIG_PATH cmake)
+elseif(EXISTS "${CURRENT_PACKAGES_DIR}/lib/cmake/Moja")
+  vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake/Moja)
+endif()
 vcpkg_copy_pdbs()
 
 # Remove duplicate headers installed from debug build
