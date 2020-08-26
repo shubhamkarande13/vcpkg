@@ -386,7 +386,7 @@ elseif (VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Linux" OR VCPKG_CMAKE_SYSTEM_NAME STRE
     set(OUT_PATH_RELEASE ${SOURCE_PATH_RELEASE}/../../make-build-${TARGET_TRIPLET}-release)
     file(MAKE_DIRECTORY ${OUT_PATH_RELEASE})
     vcpkg_execute_required_process(
-      COMMAND "${SOURCE_PATH_RELEASE}/configure" --prefix=${OUT_PATH_RELEASE}
+      COMMAND "${SOURCE_PATH_RELEASE}/configure" --prefix=${OUT_PATH_RELEASE} --with-geos
       WORKING_DIRECTORY ${SOURCE_PATH_RELEASE}
       LOGNAME config-${TARGET_TRIPLET}-rel
     )
