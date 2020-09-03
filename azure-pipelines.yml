@@ -13,9 +13,8 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
-- task: BatchScript@1
-  inputs:
-    filename: 'bootstrap-vcpkg.bat'
-    echo Add other tasks to build, test, and deploy your project.
-    displayName: 'Run a multi-line script'
+- script: |bootstrap-vcpkg.bat
+
+- script: |vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows 
+
+- script: |vcpkg.exe export boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows --7zip
