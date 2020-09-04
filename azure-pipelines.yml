@@ -12,20 +12,20 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-  timeoutInMinutes: 0 # how long to run the job before automatically cancelling
+  timeoutInMinutes: 0  
 
 - task: CmdLine@2
-  timeoutInMinutes: 0 # how long to run the job before automatically cancelling
+  timeoutInMinutes: 0  
   inputs:
     script: |
       bootstrap-vcpkg.bat 
 
 - task: CmdLine@2
-  timeoutInMinutes: 0 # how long to run the job before automatically cancelling
+  timeoutInMinutes: 0 
   inputs:
     script: 'vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows'
 
 - task: CmdLine@2
-  timeoutInMinutes: 0 # how long to run the job before automatically cancelling
+  timeoutInMinutes: 0 
   inputs:
     script: 'vcpkg.exe export boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows --7zip'
