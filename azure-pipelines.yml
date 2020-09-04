@@ -13,6 +13,11 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+jobs:
+- job: Test
+  timeoutInMinutes: 0 # how long to run the job before automatically cancelling
+  cancelTimeoutInMinutes: 0 # how much time to give 'run always even if cancelled tasks' before stopping them
+
 - task: CmdLine@2
   inputs:
     script: |
